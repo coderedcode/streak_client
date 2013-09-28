@@ -38,5 +38,13 @@ describe StreakClient::Pipeline do
     @pipeline.stages.first.name.must_equal "Stage 1"
   end
 
+  it "can edit its properties" do
+    pipeline_key = @pipeline.pipelineKey
+    @pipeline.name = "New Name"
+    @pipeline.save!
+    changed_pipeline = StreakClient::Pipeline.find(pipeline_key)
+    changed_pipeline.name.must_equal "New Name"
+  end
+  
 end
 

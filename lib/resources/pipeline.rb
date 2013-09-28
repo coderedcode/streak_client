@@ -1,9 +1,11 @@
 module StreakClient
   
+  # TODO abstract out attributes so we don't list them everywhere
+  # (edit/get) do this for other resources too
+  # need to separate readable and writeable attributes
   class Pipeline
 
     ASSOCIATIONS = [:stages, :boxes]
-
     attr_accessor :name, :description, :orgWide, :fieldNames, 
       :fieldTypes, :stages, :pipelineKey
 
@@ -15,7 +17,7 @@ module StreakClient
       attributes.each do |attr_name, attr_value| 	
         if self.respond_to?(attr_name) && !ASSOCIATIONS.include?(attr_name)
           self.send("#{attr_name}=", attr_value) 
-	end
+        end
       end
     end
 
@@ -61,6 +63,11 @@ module StreakClient
 
     def add_box(attributes)
       Box.create(self.pipelineKey, attributes)
+    end
+
+    def save!
+      RestClient.post(Pipeline.api_url + "/#{pipelineKey}", 
+        {name: name, description: description}.to_json, content_type: :json)
     end
 
   end

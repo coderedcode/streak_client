@@ -45,6 +45,10 @@ module StreakClient
       Newsfeed.new(events: response)
     end
 
+    def save!
+      RestClient.post(Box.instance_api_url(boxKey), 
+        {name: name, notes: notes, stageKey: stageKey}.to_json, content_type: :json)
+    end
 
   end
 

@@ -33,5 +33,13 @@ describe StreakClient::Box do
     all.first.name.must_equal "Test Box"
   end
 
+  it "can edit one" do
+    box_key = @box.boxKey
+    @box.name = "New Name"
+    @box.save!
+    changed_box = StreakClient::Box.find(box_key)
+    changed_box.name.must_equal "New Name"
+  end
+
 end
 
