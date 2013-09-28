@@ -1,0 +1,4 @@
+= Streak Client - Ruby client for the Streak REST API
+
+{<img src="https://travis-ci.org/kredei/streak_client.png" />}[https://travis-ci.org/kredei/streak_client]}
+{<img src="https://codeclimate.com/github/kredei/streak_client.png" />}[https://codeclimate.com/github/kredei/streak_client]
