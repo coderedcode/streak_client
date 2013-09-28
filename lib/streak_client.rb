@@ -5,6 +5,7 @@ require 'resources/box'
 require 'resources/newsfeed'
 require 'resources/pipeline'
 require 'resources/stage'
+require 'resources/user'
 
 module StreakClient
 
