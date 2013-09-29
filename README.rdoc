@@ -38,9 +38,9 @@ The following resources are not yet supported: fields, reminders, files, search.
 
 == Contributing
 
-  Feel free to submit pull requests via Github. Include tests please.  
+Feel free to submit pull requests via Github. Include tests please.  
 
 == Credits & License
 
-  This client was written by {Kristof}[http://www.kristof.me] for the fine folks at {TurningArt}[http://www.turningart.com]. It is released under the MIT license (see LICENSE). 
+This client was written by {Kristof}[http://www.kristof.me] for the fine folks at {TurningArt}[http://www.turningart.com]. It is released under the MIT license (see LICENSE). 
 
