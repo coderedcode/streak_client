@@ -1,8 +1,9 @@
 module StreakClient
   
-  class Newsfeed
+  class Thread
 
-    attr_accessor :events
+    attr_accessor :subject, :names, :emailAddresses, :lastEmailTimestamp,
+      :threadGmailId, :files
 
     def initialize(attributes)
       attributes.each do |attr_name, attr_value|

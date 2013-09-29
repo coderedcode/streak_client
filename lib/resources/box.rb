@@ -9,7 +9,7 @@ module StreakClient
       attributes.each do |attr_name, attr_value|
         if self.respond_to?(attr_name)
           self.send("#{attr_name}=", attr_value) 
-	end
+        end
       end
     end
 
@@ -45,9 +45,20 @@ module StreakClient
       Newsfeed.new(events: response)
     end
 
+    def threads
+      response = MultiJson.load(
+        RestClient.get(Box.instance_api_url(boxKey) + "/threads"))
+      response.map {|thread_attributes| Thread.new(thread_attributes) }
+    end
+
     def save!
       RestClient.post(Box.instance_api_url(boxKey), 
         {name: name, notes: notes, stageKey: stageKey}.to_json, content_type: :json)
+    end
+
+    def add_comment(message)
+      response = MultiJson.load(
+        RestClient.put(Box.instance_api_url(boxKey) + "/comments", "message=#{message}"))
     end
 
   end

@@ -41,5 +41,10 @@ describe StreakClient::Box do
     changed_box.name.must_equal "New Name"
   end
 
+  it "can add comments" do
+    response = @box.add_comment("Comment")
+    response["message"].must_equal "Comment"
+  end
+  
 end
 
