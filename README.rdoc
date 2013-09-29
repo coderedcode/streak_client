@@ -2,3 +2,45 @@
 
 {<img src="https://travis-ci.org/kredei/streak_client.png" />}[https://travis-ci.org/kredei/streak_client]
 {<img src="https://codeclimate.com/github/kredei/streak_client.png" />}[https://codeclimate.com/github/kredei/streak_client]
+
+This client wraps the REST API for Streak, a Gmail CRM tool provided by the folks at {Rewardly}[http://blog.streak.com].
+
+== Usage
+
+Set it up:
+
+  require 'streak_client'
+  StreakClient.api_key = YOUR_API_KEY
+
+Create resources:
+
+  @pipeline = StreakClient::Pipeline.create(name: "Test", description: "T")
+  @box = StreakClient::Box.create(@pipeline.pipelineKey, {name: "Test Box"})
+
+Load existing resources:
+
+  @pipelines = StreakClient::Pipeline.all
+  @box = StreakClient::Box.find(@box.boxKey)
+  @boxes_in_a_pipeline = pipelines.first.boxes
+
+Edit resources:
+
+  @box.name = "New Name"
+  @box.save!
+
+Delete resources:
+
+  StreakClient::Pipeline.delete(@pipeline.pipelineKey)
+
+== TODO
+
+The following resources are not yet supported: fields, reminders, files, search.
+
+== Contributing
+
+  Feel free to submit pull requests via Github. Include tests please.  
+
+== Credits & License
+
+  This client was written by {Kristof}[http://www.kristof.me] for the fine folks at {TurningArt}[http://www.turningart.com]. It is released under the MIT license (see LICENSE). 
+
