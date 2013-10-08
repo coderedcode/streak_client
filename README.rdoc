@@ -3,7 +3,7 @@
 {<img src="https://travis-ci.org/kredei/streak_client.png" />}[https://travis-ci.org/kredei/streak_client]
 {<img src="https://codeclimate.com/github/kredei/streak_client.png" />}[https://codeclimate.com/github/kredei/streak_client]
 
-This client wraps the REST API for Streak, a Gmail CRM tool provided by the folks at {Rewardly}[http://blog.streak.com].
+This client wraps the REST API for Streak, a Gmail CRM tool provided by the folks at {Streak}[http://www.streak.com].
 
 == Usage
 
