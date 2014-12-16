@@ -10,6 +10,7 @@ describe StreakClient::Stage do
   end
 
   after(:each) do
+    @pipeline.boxes.each {|box| StreakClient::Box.delete(box.boxKey) }
     StreakClient::Pipeline.delete(@pipeline.pipelineKey)
   end
 

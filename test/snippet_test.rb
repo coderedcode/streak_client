@@ -5,7 +5,7 @@ require 'test_helper'
 describe StreakClient::Snippet do
 
   it "can get all snippets" do
-  	snippets = StreakClient::Snippet.all
+    snippets = StreakClient::Snippet.all
     snippets.wont_be_nil
   end
 

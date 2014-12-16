@@ -5,12 +5,11 @@ require 'test_helper'
 describe StreakClient::Pipeline do
 
   before(:each) do
-    StreakClient.api_key = "0b6359c686584bc3b610a640e2e7eb9f"
-
     @pipeline = StreakClient::Pipeline.create(name: "Test", description: "T")
   end
 
   after(:each) do
+    @pipeline.boxes.each {|box| StreakClient::Box.delete(box.boxKey) }
     StreakClient::Pipeline.delete(@pipeline.pipelineKey)
   end
 
@@ -29,6 +28,7 @@ describe StreakClient::Pipeline do
   end
 
   it "can add and list boxes" do
+    @stage = StreakClient::Stage.create(@pipeline.pipelineKey, {name: "Stage 1"})
     @pipeline.add_box(name: "Box")
     @pipeline.boxes.first.name.must_equal "Box"
   end
